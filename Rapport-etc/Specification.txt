@@ -1,0 +1,21 @@
+BellmanFordAlgo(g,s)
+
+Données: graphe (classe BellmanFord) = tableau de Edges(arêtes) g, source (numéro de l'arête) s
+
+Résultat: affichage du tableau t de distances entre la source et les autres arrêtes
+
+
+
+Préconditions:
+	s >=0
+	s < size(g)
+	g non nul
+	....
+	
+
+
+Postconditions:
+	g et s inchangés
+	size(t) = size(g)
+	...	
+	
