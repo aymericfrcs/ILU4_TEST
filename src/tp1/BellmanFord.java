@@ -28,7 +28,7 @@ public class BellmanFord {
     }
 
     // Bellman-Ford Algorithm to find shortest paths from source to all vertices
-    void BellmanFordAlgo(BellmanFord graph, int source) {
+    public static String BellmanFordAlgo(BellmanFord graph, int source) {
         int V = graph.V, E = graph.E;
         int dist[] = new int[V];
 
@@ -53,25 +53,38 @@ public class BellmanFord {
             int v = graph.edge[j].destination;
             int weight = graph.edge[j].weight;
             if (dist[u] != Integer.MAX_VALUE && dist[u] + weight < dist[v]) {
-                System.out.println("Graph contains negative weight cycle");
-                return;
+                //System.out.println("Graph contains negative weight cycle");
+                return "CYCLE_NEGATIF";
             }
         }
 
         // Print distances from source to all vertices
-        printDistances(dist, V);
+        //printDistances(dist, V);
+        
+        // Return distances from source to all vertices
+        //return writeDistances(dist, V);
+        
+        return Arrays.toString(dist).replaceAll("[\\[\\],]", "");
     }
 
     // Print distances from source to all vertices
-    void printDistances(int dist[], int V) {
+    public static void printDistances(int dist[], int V) {
         System.out.println("Vertex Distance from Source:");
         for (int i = 0; i < V; ++i)
             System.out.println(i + "\t\t" + dist[i]);
     }
-
-    // Main method to test the Bellman-Ford algorithm
-    public static void main(String[] args) {
-        int V = 5;
+    
+    public static String writeDistances(int dist[], int V) {
+    	StringBuilder sb = new StringBuilder();
+    	//sb.append("Vertex Distance from Source:");
+    	for (int i = 0; i < V; ++i)
+            sb.append("\n" + i + "\t\t" + dist[i]);
+    	return sb.toString();
+    }
+    
+    
+    public void exple_main() {
+    	int V = 5;
         int E = 8;
         BellmanFord graph = new BellmanFord(V, E);
 
@@ -118,5 +131,10 @@ public class BellmanFord {
 
         // Execute Bellman-Ford algorithm
         graph.BellmanFordAlgo(graph, 0);
+    }
+
+    // Main method to test the Bellman-Ford algorithm
+    public static void main(String[] args) {
+        
     }
 }
