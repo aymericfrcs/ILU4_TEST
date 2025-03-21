@@ -55,6 +55,7 @@ public class BellmanFord {
             if (dist[u] != Integer.MAX_VALUE && dist[u] + weight < dist[v]) {
                 //System.out.println("Graph contains negative weight cycle");
                 return "CYCLE_NEGATIF";
+                
             }
         }
 
@@ -84,10 +85,65 @@ public class BellmanFord {
     
     
     public void exple_main() {
-    	int V = 5;
+    	
+        //graph question 2
+        int V = 6;
+        int E = 9;
+        BellmanFord graph = new BellmanFord(V, E);
+        
+        //edges
+        //Edge A-B
+        graph.edge[0].source = 0;
+        graph.edge[0].destination = 1;
+        graph.edge[0].weight = 6;
+        
+        //Edge A-C
+        graph.edge[1].source = 0;
+        graph.edge[1].destination = 2;
+        graph.edge[1].weight = 4;
+        
+        //Edge A-D
+        graph.edge[2].source = 0;
+        graph.edge[2].destination = 3;
+        graph.edge[2].weight = 5;
+        
+        //Edge B-E
+        graph.edge[3].source = 1;
+        graph.edge[3].destination = 4;
+        graph.edge[3].weight = -1;
+        
+        //Edge C-B
+        graph.edge[4].source = 2;
+        graph.edge[4].destination = 1;
+        graph.edge[4].weight = -2;
+        
+        //Edge C-E
+        graph.edge[5].source = 2;
+        graph.edge[5].destination = 4;
+        graph.edge[5].weight = 3;
+        
+        //Edge D-C
+        graph.edge[6].source = 3;
+        graph.edge[6].destination = 2;
+        graph.edge[6].weight = -2;
+
+        //Edge D-F
+        graph.edge[7].source = 3;
+        graph.edge[7].destination = 5;
+        graph.edge[7].weight = -1;
+        
+        //Edge E-F
+        graph.edge[8].source = 4;
+        graph.edge[8].destination = 5;
+        graph.edge[8].weight = 3;
+        
+        
+        /*
+         * 
+        int V = 5;
         int E = 8;
         BellmanFord graph = new BellmanFord(V, E);
-
+        
         // Define edges
         // Edge 0-1
         graph.edge[0].source = 0;
@@ -128,13 +184,68 @@ public class BellmanFord {
         graph.edge[7].source = 4;
         graph.edge[7].destination = 3;
         graph.edge[7].weight = -3;
-
+		*/
+        
+        
         // Execute Bellman-Ford algorithm
-        graph.BellmanFordAlgo(graph, 0);
+        System.out.println(BellmanFordAlgo(graph, 0));
     }
 
     // Main method to test the Bellman-Ford algorithm
     public static void main(String[] args) {
         
+    	//graph question 2
+        int V = 6;
+        int E = 9;
+        BellmanFord graph = new BellmanFord(V, E);
+        
+        //edges
+        //Edge A-B
+        graph.edge[0].source = 0;
+        graph.edge[0].destination = 1;
+        graph.edge[0].weight = 6;
+        
+        //Edge A-C
+        graph.edge[1].source = 0;
+        graph.edge[1].destination = 2;
+        graph.edge[1].weight = 4;
+        
+        //Edge A-D
+        graph.edge[2].source = 0;
+        graph.edge[2].destination = 3;
+        graph.edge[2].weight = 5;
+        
+        //Edge B-E
+        graph.edge[3].source = 1;
+        graph.edge[3].destination = 4;
+        graph.edge[3].weight = -1;
+        
+        //Edge C-B
+        graph.edge[4].source = 2;
+        graph.edge[4].destination = 1;
+        graph.edge[4].weight = -2;
+        
+        //Edge C-E
+        graph.edge[5].source = 2;
+        graph.edge[5].destination = 4;
+        graph.edge[5].weight = 3;
+        
+        //Edge D-C
+        graph.edge[6].source = 3;
+        graph.edge[6].destination = 2;
+        graph.edge[6].weight = -2;
+
+        //Edge D-F
+        graph.edge[7].source = 3;
+        graph.edge[7].destination = 5;
+        graph.edge[7].weight = -1;
+        
+        //Edge E-F
+        graph.edge[8].source = 4;
+        graph.edge[8].destination = 5;
+        graph.edge[8].weight = 3;
+        
+    	
+    	System.out.println(BellmanFordAlgo(graph, 0));
     }
 }

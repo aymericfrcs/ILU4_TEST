@@ -1,3 +1,11 @@
+Question 3
+
+Oui, il suffit d'une suite de test comprenant:
+>un graphe quelconque (sans cycle négatif)
+>un graphe contenant un cycle négatif
+
+Exemple:
+
 # Test 1 : Graphe simple sans cycle négatif
 V=5
 E=8
@@ -21,16 +29,3 @@ E=3
 2 0 -1
 SOURCE=0
 EXPECTED=CYCLE_NEGATIF
-
-
-# Test 3 : Graphe simple
-#V=4
-#E=6
-#0 1 -1
-#0 2 2
-#1 0 1
-#1 3 4
-#2 3 1
-#3 1 2
-#SOURCE=0
-#EXPECTED=0 -1 2 3

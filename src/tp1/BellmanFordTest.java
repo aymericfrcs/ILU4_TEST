@@ -17,6 +17,7 @@ public class BellmanFordTest {
             this.edges = edges;
             this.expectedOutput = expectedOutput;
         }
+        
     }
 
 
