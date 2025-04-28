@@ -56,37 +56,6 @@ public class BellmanFordTest {
         return testCases;
     }
 
-    // Exécute l'algorithme Bellman-Ford et retourne le résultat sous forme de chaîne
-/*    public static String executeBellmanFord(BellmanFord graph, int source) {
-        int V = graph.V, E = graph.E;
-        int[] dist = new int[V];
-        Arrays.fill(dist, Integer.MAX_VALUE);
-        dist[source] = 0;
-
-        for (int i = 1; i < V; i++) {
-            for (int j = 0; j < E; j++) {
-                int u = graph.edge[j].source;
-                int v = graph.edge[j].destination;
-                int weight = graph.edge[j].weight;
-                if (dist[u] != Integer.MAX_VALUE && dist[u] + weight < dist[v]) {
-                    dist[v] = dist[u] + weight;
-                }
-            }
-        }
-
-        // Vérification des cycles négatifs
-        for (int j = 0; j < E; j++) {
-            int u = graph.edge[j].source;
-            int v = graph.edge[j].destination;
-            int weight = graph.edge[j].weight;
-            if (dist[u] != Integer.MAX_VALUE && dist[u] + weight < dist[v]) {
-                return "CYCLE_NEGATIF";
-            }
-        }
-
-        return Arrays.toString(dist).replaceAll("[\\[\\],]", "");
-    }*/
-    
     public static String executeBellmanFord(BellmanFord graph, int source) {
     	return BellmanFord.BellmanFordAlgo(graph, source);
     }
@@ -115,13 +84,13 @@ public class BellmanFordTest {
                 System.out.println("Test Réussi");
                 passed++;
             } else {
-                System.out.println("Test Échoué (Attendu: " + test.expectedOutput + ", Obtenu: " + result + ")");
+                System.out.println("Test Échoué (Résultat Attendu: " + test.expectedOutput + ", Obtenu: " + result + ")");
                 failed++;
             }
             testNb++;
         }
 
-        System.out.println("\n=== Rapport de Test ===");
+        System.out.println("\nRésultats:");
         System.out.println("Total de tests exécutés : " + (passed + failed));
         System.out.println("Tests réussis : " + passed);
         System.out.println("Tests échoués : " + failed);
